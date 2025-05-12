@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note-Taking App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</head>
+<body>
+    
+    <body>
+        <div class="app-container">
+          <aside class="sidebar">
+            <div class="sidebar-header">
+              <h1>📝 Note-Taking App</h1>
+            </div>
+      
+            <div class="quote-container">
+              <div class="quote-icon">💭</div>
+              <p id="quote">Your motivational quote will appear here...</p>
+            </div>
+      
+            <div class="sidebar-actions">
+              <button id="createNote" class="sidebar-button">
+                <i class="fas fa-plus"></i>
+                <span>New Note</span>
+              </button>
+              <button id="themeToggle" class="sidebar-button">
+                <i class="fas fa-moon"></i>
+                <span>Toggle Theme</span>
+              </button>
+              <button id="logoutButton" class="sidebar-button">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </button>
+            </div>
+          </aside>
+      
+          <main class="main-content">
+            <header class="main-header">
+              <div class="search-container">
+                <input type="text" id="search" placeholder="Search notes..." />
+              </div>
+            </header>
+      
+            <section class="auth" id="authSection">
+              <div class="auth-container">
+                <h2>Welcome Back!</h2>
+                <form id="authForm" onsubmit="return false;">
+                  <div class="input-group">
+                    <input id="username" placeholder="Username" required />
+                  </div>
+                  <div class="input-group">
+                    <input id="email" placeholder="Email (for register)" type="email" />
+                  </div>
+                  <div class="input-group">
+                    <input id="password" type="password" placeholder="Password" required minlength="6" />
+                  </div>
+                  <div class="auth-buttons">
+                    <button type="button" id="loginButton" class="auth-button login">
+                      <i class="fas fa-sign-in-alt"></i>
+                      Login
+                    </button>
+                    <button type="button" id="registerButton" class="auth-button register">
+                      <i class="fas fa-user-plus"></i>
+                      Register
+                    </button>
+                  </div>
+                  <p id="authMessage" class="auth-message"></p>
+                </form>
+              </div>
+            </section>
+      
+            <section class="note-input" style="display: none;">
+              <div class="note-input-container">
+                <input type="text" id="noteTitle" placeholder="Note Title" required />
+                <textarea id="noteContent" placeholder="Start writing your note..." required></textarea>
+                <button id="addNote" class="add-note-button">
+                  <i class="fas fa-paper-plane"></i>
+                  Save Note
+                </button>
+              </div>
+            </section>
+      
+            <section id="notesContainer" class="notes-grid"></section>
+          </main>
+        </div>
+      
+        <div id="editNoteModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>Edit Note</h2>
+              <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <input type="text" id="editNoteTitle" placeholder="Note Title" required />
+              <textarea id="editNoteContent" placeholder="Note Content" required></textarea>
+            </div>
+            <div class="modal-footer">
+              <button id="saveEditNote" class="modal-button save">
+                <i class="fas fa-save"></i>
+                Save Changes
+              </button>
+              <button id="cancelEditNote" class="modal-button cancel">
+                <i class="fas fa-times"></i>
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      
+        <script src="app.js"></script>
+      </body>
+      </html>
